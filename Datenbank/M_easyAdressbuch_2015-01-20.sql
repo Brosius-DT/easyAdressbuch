@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Erstellungszeit: 20. Januar 2015 um 10:03
+-- Erstellungszeit: 27. Januar 2015 um 16:30
 -- Server Version: 4.1.13
 -- PHP-Version: 5.2.14
 
@@ -30,16 +30,16 @@ CREATE TABLE IF NOT EXISTS `ea1_benutzer` (
   `ort` varchar(30) default NULL,
   `strasse` varchar(30) default NULL,
   `hausnummer` varchar(5) default NULL COMMENT '12a',
-  `telefon` varchar(20) default NULL COMMENT '+49 ((0)6221) 123456-78',
-  `telefax` varchar(20) default NULL COMMENT '+49 ((0)6221) 123456-81',
-  `mobil` varchar(20) default NULL COMMENT '+49 (0)175 98765432',
-  `email` varchar(30) default NULL,
+  `telefon` varchar(40) default NULL COMMENT '+49 ((0)6221) 123456-78',
+  `telefax` varchar(40) default NULL COMMENT '+49 ((0)6221) 123456-81',
+  `mobil` varchar(40) default NULL COMMENT '+49 (0)175 98765432',
+  `email` varchar(50) default NULL,
   `website` varchar(50) default NULL,
   `bild` varchar(40) default NULL COMMENT 'md5(Bildername)',
-  `geburtstag` date default '0000-00-00' COMMENT 'gaaaanz langer Fleißtext',
-  `notiz` text,
-  `erstellt_wann` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
-  `geaendert_wann` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `geburtstag` date default '0000-00-00',
+  `notiz` text COMMENT 'gaaaanz langer Fließtext',
+  `erstellt_wann` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `geaendert_wann` timestamp NOT NULL default '0000-00-00 00:00:00' on update CURRENT_TIMESTAMP,
   PRIMARY KEY  (`ID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 

@@ -1,0 +1,85 @@
+<?php
+
+session_start();
+
+if($_SESSION['sessLoggedinYes']=="true") {
+    $Navpunkt = htmlspecialchars($_POST['id']);
+    
+    include_once 'include_masks/show_data.php';
+    
+    switch($Navpunkt) {
+ 
+        case'SHOW':  
+            $Message = "SHOW";
+        break;
+        case'SEEK':
+            $Message = "SEEK";
+        break;
+        case'EDIT':
+            $Message = "EDIT";
+        break;
+        case'NEW':
+            $Message = "NEW";
+        break;
+        case'KILL':
+            $Message = "KILL";
+        break;
+    }
+    
+    //START Ausgabebereich
+    
+    ?>
+
+        <html>
+            <head>
+                <meta charset="UTF-8">
+                <title>easyAdressbuch</title>
+                <link rel="shortcut icon" type="image/ico" href="http://www.geeeek.de/publ_Media/Logo.jpg" />
+                <link rel="stylesheet" type="text/css" href="MYstyle.css" />
+            </head>
+            <body>
+                
+                <form action="Datensatz.php" method="POST">
+                    <input type="hidden" name="id" value="SHOW">
+                    <input type="submit" value="Alles anzeigen">
+                </form>
+
+                <form action="Datensatz.php" method="POST">
+                    <input type="hidden" name="id" value="SEEK">
+                    <input type="submit" value="Datensatz suchen">
+                </form>
+
+                <form action="Datensatz.php" method="POST">
+                    <input type="hidden" name="id" value="EDIT">
+                    <input type="submit" value="Tupel bearbeiten">
+                </form>
+
+                <form action="Datensatz.php" method="POST">
+                    <input type="hidden" name="id" value="NEW">
+                    <input type="submit" value="Neuer Datensatz">
+                </form>
+
+                <form action="Datensatz.php" method="POST">
+                    <input type="hidden" name="id" value="KILL">
+                    <input type="submit" value="Datensatz löschen">
+                </form>
+                <br>
+                
+            </body>
+        </html>
+        
+    <?php
+      
+    echo $Message . "<br>";
+    
+    //Ausgabebereich ENDE
+    
+} else {
+    $_SESSION['sessLoggedinYes'] = "false";
+    
+    echo "Access denied";
+}
+
+?>
+
+

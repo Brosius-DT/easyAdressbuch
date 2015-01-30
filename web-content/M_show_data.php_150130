@@ -1,0 +1,51 @@
+<?php
+
+session_start();
+
+if($_SESSION['sessLoggedinYes']=="true") {
+    
+    ?>
+
+    <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>easyAdressbuch</title>
+            <link rel="shortcut icon" type="image/ico" href="http://www.geeeek.de/publ_Media/Logo.jpg" />
+            <link rel="stylesheet" type="text/css" href="MYstyle.css" />
+        </head>
+        <body>
+            <form name="Show_data_form" class="Verwaltung" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                <label><div style="float: left; width:100px;">ID : </div></label><input type="text" name="id" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Anrede : </div></label><input type="text" name="anrede" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Name1 : </div></label><input type="text" name="name1" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Name2 : </div></label><input type="text" name="name2" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Name3 : </div></label><input type="text" name="name3" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Geschlecht : </div></label><input type="text" name="geschlecht" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">PLZ : </div></label><input type="text" name="plz" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Ort : </div></label><input type="text" name="ort" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Straße : </div></label><input type="text" name="strasse" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Haus-Nr. : </div></label><input type="text" name="haus-nr" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Telefon : </div></label><input type="text" name="telefon" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Telefax : </div></label><input type="text" name="telefax" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Mobil : </div></label><input type="text" name="mobil" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">eMail : </div></label><input type="text" name="email" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Webside : </div></label><input type="text" name="webside" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Bild : </div></label><input type="text" name="bild" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Geburtstag : </div></label><input type="text" name="geburtstag" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">Notiz : </div></label><input type="textarea" name="notiz" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">erstellt : </div></label><input type="text" name="erstellt" size="60" maxlength="60" class="TEXTIN"><br>
+                <label><div style="float: left; width:100px;">geänderung : </div></label><input type="text" name="geaendert" size="60" maxlength="60" class="TEXTIN"><br><br>
+
+                <input type="submit" name="AKTION" value="OK" class="BTN"><br>
+                <input type="hidden" name="Navpunkt" value="show_all"/>
+            </form> 
+        </body>
+    </html>
+
+    <?php
+    
+} else {
+    $_SESSION['sessLoggedinYes'] = "false";
+    
+    echo "Access denied";
+}
